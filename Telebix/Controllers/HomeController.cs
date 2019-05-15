@@ -22,6 +22,10 @@ namespace Telebix.Controllers
             return View();
         }
 
+        public IActionResult Report()
+        {
+            return View();
+        }
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
