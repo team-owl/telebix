@@ -33,6 +33,11 @@ namespace Telebix.Controllers
             return View();
         }
 
+        public IActionResult News()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
