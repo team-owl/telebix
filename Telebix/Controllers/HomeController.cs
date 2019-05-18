@@ -38,6 +38,11 @@ namespace Telebix.Controllers
             return View();
         }
 
+        public IActionResult Tutorials()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
