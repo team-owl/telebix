@@ -5,7 +5,14 @@ body {
 }
 
 footer {
-    text-align: center;
+    /* text-align : center; */
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    background: black;
+    z-index: 1000;
 }
 
 .feather {
