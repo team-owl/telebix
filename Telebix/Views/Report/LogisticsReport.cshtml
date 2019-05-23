@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Report";
+    ViewData["Title"] = "Logistics Report";
 }
 
 <div class="container-fluid">
@@ -11,7 +11,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">
                             <span data-feather="home"></span>
-                            Dashboard <span class="sr-only">(current)</span>
+                            Overview <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
@@ -21,7 +21,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="RiskFactorsReport">Risk Factors Analysis Report</a>
-                            <a class="dropdown-item" href="#">Report 2</a>
+                            <a class="dropdown-item disabled" href="#">Logistics Report</a>
                             <a class="dropdown-item" href="#">Report 3</a>
                         </div>
                     </li>
@@ -69,7 +69,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Dashboard</h1>
+                <h1 class="h2">Logistics Report</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group mr-2">
                         <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -82,9 +82,10 @@
                 </div>
             </div>
             <div>
-                <img class="my-4 w-100 img-fluid" src="~/images/Risk_Factors_Screenshot.png" id="myChart" width="900" height="700" />                
+                <h2>Put your logistics report here.</h2>
+                @*<img class="my-4 w-100 img-fluid" src="~/images/Risk_Factors_Screenshot.png" id="myChart" width="900" height="700" />*@                
             </div>
-            <h2>Section title</h2>
+            @*<h2>Section title</h2>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -211,7 +212,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div>*@
         </main>
     </div>
 </div>

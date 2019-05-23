@@ -22,6 +22,9 @@
     <Content Update="Views\Report\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Report\LogisticsReport.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Report\RiskFactorsReport.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
