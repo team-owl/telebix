@@ -12,5 +12,21 @@ namespace Telebix.Controllers
         {
             return View();
         }
+
+        public IActionResult NewsArticle1()
+        {
+            return View();
+        }
+
+        public IActionResult NewsArticle2()
+        {
+            return View();
+        }
+
+        public IActionResult NewsArticle3()
+        {
+            return View();
+        }
+
     }
 }

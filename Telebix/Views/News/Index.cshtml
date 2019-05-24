@@ -1,11 +1,43 @@
 ﻿
 @{
     ViewData["Title"] = "News";
-    ViewData["Message"] = "Insert latest news here";
 }
 
 <div class="container">
     <h2>@ViewData["Title"]</h2>
-    <h3>@ViewData["Message"]</h3>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <img class="card-img-top" src="~/images/Newspaper.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Sample Article 1</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur fermentum ex, quis varius nisi tincidunt sit amet. Etiam ullamcorper dui nec enim varius gravida. Nunc aliquam congue lacus at bibendum. Ut porttitor egestas fringilla. Aenean id mollis turpis. </p>
+                    <a asp-controller="News" asp-action="NewsArticle1" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img class="card-img-top" src="~/images/Newspaper.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Sample Article 2</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur fermentum ex, quis varius nisi tincidunt sit amet. Etiam ullamcorper dui nec enim varius gravida. Nunc aliquam congue lacus at bibendum. Ut porttitor egestas fringilla. Aenean id mollis turpis. </p>
+                    <a asp-controller="News" asp-action="NewsArticle2" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <img class="card-img-top" src="~/images/Newspaper.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Sample Article 3</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur fermentum ex, quis varius nisi tincidunt sit amet. Etiam ullamcorper dui nec enim varius gravida. Nunc aliquam congue lacus at bibendum. Ut porttitor egestas fringilla. Aenean id mollis turpis. </p>
+                    <a asp-controller="News" asp-action="NewsArticle3" class="btn btn-primary">Read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
