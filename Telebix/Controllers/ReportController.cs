@@ -22,5 +22,10 @@ namespace Telebix.Controllers
         {
             return View();
         }
+
+        public IActionResult ErrorReport()
+        {
+            return View();
+        }
     }
 }

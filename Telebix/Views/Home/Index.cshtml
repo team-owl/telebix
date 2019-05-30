@@ -2,49 +2,49 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <div class="jumbotron">
+    @*<div class="jumbotron">
         <div class="container">
         <h1 class="display-4">Telebix</h1>
         <p class="lead">Always there. Anytime. Anywhere.</p>
         <hr class="my-4">
         <a class="btn btn-info btn-lg" asp-controller="Home" asp-action="About" role="button">Learn more</a>
         </div>
-    </div>
+    </div>*@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
                 <div class="card">
-                    <img class="card-img-top" src="~/images/Risk_Factors_Thumbnail.png" alt="Card image cap">
+                    <img class="card-img-top" src="~/images/barchart_sq.png" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Risk Factors Analysis </h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum felis libero, eu ullamcorper lacus hendrerit non.</p>
                         <a asp-controller="Report" asp-action="RiskFactorsReport" class="btn btn-primary">Go to Report</a>
+                        <p class="card-text">Broad overview of test results by risk factor</p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="card">
-                    <img class="card-img-top" src="~/images/Logistics_Report_Thumbnail.png" alt="Card image cap">
+                    <img class="card-img-top" src="~/images/Sample_map_sq.png" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Logistics Report</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum felis libero, eu ullamcorper lacus hendrerit non.</p>
                         <a asp-controller="Report" asp-action="LogisticsReport" class="btn btn-primary">Go to Report</a>
+                        <p class="card-text">Key indicators about basic app usage</p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="card">
-                    <img class="card-img-top" src="http://www.placepuppy.net/100/100" alt="Card image cap">
+                    <img class="card-img-top" src="~/images/error_phone.png" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Generic Report 3</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum felis libero, eu ullamcorper lacus hendrerit non.</p>
-                        <a href="#" class="btn btn-primary">Go to Report</a>
+                        <h5 class="card-title">Error Report</h5>
+                        <a asp-controller="Report" asp-action="ErrorReport" class="btn btn-primary">Go to Report</a>
+                        <p class="card-text">Central logging of application errors</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container" style="padding-top: 10px;">
         <div class="row">
             <div class="col">
                 <div class="card">

@@ -1,0 +1,23 @@
+﻿<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+    <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" asp-controller="Report" asp-action="Index">
+                    <span data-feather="home"></span>
+                    Overview <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span data-feather="file"></span>
+                    Standard Reports
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="RiskFactorsReport">Risk Factors Analysis Report</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="LogisticsReport">Logistics Report</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="ErrorReport">Error Report</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
