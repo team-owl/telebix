@@ -10,7 +10,17 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Risk Factors Analysis Report</h1>
-                <partial name="_ShareExport" />
+                @*<partial name="_ShareExport" />*@
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary">Share</button>
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Export</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="~/docs/Risk_Factor_Analysis.pdf">as PDF</a>
+                            <a class="dropdown-item" href="~/images/Risk_Factor_Analysis.PNG">as PNG</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div>
                 @*<img class="my-4 w-100 img-fluid" src="~/images/Risk_Factors_Screenshot.png" id="myChart" width="900" height="700" />*@
