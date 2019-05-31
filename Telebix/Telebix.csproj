@@ -34,7 +34,7 @@
     <Content Update="Views\Report\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Views\Report\LogisticsReport.cshtml">
+    <Content Update="Views\Report\CoverageReport.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Report\RiskFactorsReport.cshtml">

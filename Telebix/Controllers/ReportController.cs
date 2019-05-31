@@ -18,7 +18,7 @@ namespace Telebix.Controllers
             return View();
         }
 
-        public IActionResult LogisticsReport()
+        public IActionResult CoverageReport()
         {
             return View();
         }
