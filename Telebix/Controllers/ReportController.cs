@@ -23,6 +23,16 @@ namespace Telebix.Controllers
             return View();
         }
 
+        public IActionResult StatReportIndex()
+        {
+            return View();
+        }
+
+        public IActionResult StatReportMarMay2019()
+        {
+            return View();
+        }
+
         public IActionResult ErrorReport()
         {
             return View();
