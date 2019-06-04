@@ -18,67 +18,71 @@
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.EventDt)
+                                Clinic Name
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.PhoneId)
+                                # Successful
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.UserId)
+                                # Failed
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.ClinicName)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.AppVersion)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.AndroidVersion)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Success)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Value)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Message)
+                                Failure Rate
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model)
+                        @{
+                            //Group results by clinic
+                            var groups = from appEv in Model
+                                         group appEv by appEv.ClinicName into clinicGroup
+                                         orderby clinicGroup.Key
+                                         select clinicGroup;
+                        }
+
+                        @foreach (var clinic in groups)
                         {
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.EventDt)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.PhoneId)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.UserId)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ClinicName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.AppVersion)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.AndroidVersion)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Success)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Value)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Message)
-                                </td>
+                                <td>@clinic.Key</td>
+                                <td>@clinic.Count(e => e.Success == true)</td>
+                                <td>@clinic.Count(e => e.Success == false)</td>
+@*                                @{ clinic.Count(e => e.Success == true) / clinic.Count(e => e.Success == true); }*@
                             </tr>
+
                         }
+
+                        @*@foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventDt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClinicName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppVersion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AndroidVersion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Success)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+            </tr>
+        }*@
                     </tbody>
                 </table>
 
