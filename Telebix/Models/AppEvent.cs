@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Telebix.Models
 {
-    public class AppEvent
+    public partial class AppEvent
     {
         public DateTime EventDt { get; set; }
         public int PhoneId { get; set; }
