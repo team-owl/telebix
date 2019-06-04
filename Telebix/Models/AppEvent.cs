@@ -9,7 +9,7 @@ namespace Telebix.Models
     {
         public DateTime EventDt { get; set; }
         public int PhoneId { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public string ClinicName { get; set; }
         public string AppVersion { get; set; }
         public string AndroidVersion { get; set; }
