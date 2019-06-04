@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Telebix.Models;
 
 namespace Telebix.Controllers
 {
@@ -36,6 +37,12 @@ namespace Telebix.Controllers
         public IActionResult ErrorReport()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult AppEvents()
+        {
+            return View(AppEvent.LoadSampleData());
         }
     }
 }
