@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Telebix.Models.AppEvent>
+
+@{
+    ViewData["Title"] = "AppEvents";
+}
+
+<h2>AppEvents</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppVersion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AndroidVersion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Success)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppVersion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AndroidVersion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Success)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
