@@ -17,16 +17,16 @@
                 <table class="table-striped" width="100%">
                     <thead>
                         <tr>
-                            <th>
-                                Clinic Name
+                            <th width="40%">
+                                Clinic Name / Phones
                             </th>
-                            <th>
+                            <th width="20%">
                                 # Successful
                             </th>
-                            <th>
+                            <th width="20%">
                                 # Failed
                             </th>
-                            <th>
+                            <th width="20%">
                                 Failure Rate
                             </th>
                         </tr>
@@ -70,13 +70,13 @@
                                                 });
 
                                         }
-                                    <table class="table">
+                                    <table class="table" width="100%">
                                         @foreach (var phoneGroup in phones) {
                                             <tr>
-                                                <td>@phoneGroup.Name</td>
-                                                <td>@phoneGroup.Successful</td>
-                                                <td>@phoneGroup.Failed</td>
-                                                <td>
+                                                <td width="40%">@phoneGroup.Name</td>
+                                                <td width="20%">@phoneGroup.Successful</td>
+                                                <td width="20%">@phoneGroup.Failed</td>
+                                                <td width="20%">
                                                     @{ double pct2 = (double)phoneGroup.Failed / (phoneGroup.Successful + phoneGroup.Failed); }
                                                     @String.Format("{0:0.0%}", pct2)
                                                 </td>
