@@ -15,17 +15,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <div class="card">
-                    <img class="card-img-top" src="~/images/risk.png" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Risk Factors Analysis </h5>
-                        <a asp-controller="Report" asp-action="RiskFactorsReport" class="btn btn-primary">Go to Report</a>
-                        <p class="card-text">Broad overview of test results by risk factor</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="card">
                     <img class="card-img-top" src="~/images/coverage.png" alt="Card image cap">
                     <div class="card-body">
@@ -35,7 +25,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
+                <div class="card">
+                    <img class="card-img-top" src="~/images/risk.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Risk Factors Analysis </h5>
+                        <a asp-controller="Report" asp-action="RiskFactorsReport" class="btn btn-primary">Go to Report</a>
+                        <p class="card-text">Broad overview of test results by risk factor</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
                 <div class="card">
                     <img class="card-img-top" src="~/images/stat.png" alt="Card image cap">
                     <div class="card-body">
@@ -45,11 +45,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="card">
-                    <img class="card-img-top" src="~/images/error_phone.png" alt="Card image cap">
+                    <img class="card-img-top" src="~/images/tracking.png" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Error Report</h5>
                         <a asp-controller="Report" asp-action="ErrorReport" class="btn btn-primary">Go to Report</a>
@@ -57,29 +55,7 @@
                     </div>
                 </div>
             </div>
-
-            @*<div class="col-sm-4">
-                <div class="card">
-                    <img class="card-img-top" src="~/images/coverage.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Coverage Report</h5>
-                        <a asp-controller="Report" asp-action="CoverageReport" class="btn btn-primary">Go to Report</a>
-                        <p class="card-text">Key indicators about basic app usage</p>
-                    </div>
-                </div>
-            </div>*@
-            @*<div class="col-sm-4">
-                <div class="card">
-                    <img class="card-img-top" src="~/images/error_phone.png" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Error Report</h5>
-                        <a asp-controller="Report" asp-action="ErrorReport" class="btn btn-primary">Go to Report</a>
-                        <p class="card-text">Central logging of application errors</p>
-                    </div>
-                </div>
-            </div>*@
         </div>
-
     </div>
     <div class="container" style="padding-top: 10px;">
         <div class="row">
