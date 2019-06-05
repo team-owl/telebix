@@ -4,34 +4,29 @@
     Layout = null;
 }
 
-<table class="table">
-    <thead>
+<h3>Device @Model.First().PhoneId Detail</h3>
+<ul>
+    <li><b>Assigned Clinic:</b> @Model.First().ClinicName</li>
+    <li><b>User ID:</b> @Model.First().UserId</li>
+    <li><b>Installed App Version:</b> @Model.First().AppVersion</li>
+    <li><b>OS Version:</b> @Model.First().AndroidVersion</li>
+</ul>
+
+<h4>Recent Device Results</h4>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
         <tr>
-            <th>
+            <th style="text-align:left">
                 @Html.DisplayNameFor(model => model.EventDt)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneId)
+            <th style="text-align:center">
+                Success?
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserId)
+            <th style="text-align:center">
+                Value
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ClinicName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AppVersion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AndroidVersion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Success)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Value)
-            </th>
-            <th>
+            <th style="text-align:left">
                 @Html.DisplayNameFor(model => model.Message)
             </th>
         </tr>
@@ -39,31 +34,16 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td style="text-align:left">
                 @Html.DisplayFor(modelItem => item.EventDt)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClinicName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AppVersion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AndroidVersion)
-            </td>
-            <td>
+            <td style="text-align:center">
                 @Html.DisplayFor(modelItem => item.Success)
             </td>
-            <td>
+            <td style="text-align:center">
                 @Html.DisplayFor(modelItem => item.Value)
-            </td>
-            <td>
+            </td style="text-align:center">
+            <td style="text-align:left">
                 @Html.DisplayFor(modelItem => item.Message)
             </td>
         </tr>
