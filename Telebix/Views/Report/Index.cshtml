@@ -11,28 +11,73 @@
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Overview</h1>
                 @*<div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group mr-2">
-                        <button class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button class="btn btn-sm btn-outline-secondary">Export</button>
-                    </div>
-                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar"></span>
-                        This week
-                    </button>
-                </div>*@
+                <div class="btn-group mr-2">
+                    <button class="btn btn-sm btn-outline-secondary">Share</button>
+                    <button class="btn btn-sm btn-outline-secondary">Export</button>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                    <span data-feather="calendar"></span>
+                    This week
+                </button>
+            </div>*@
             </div>
             @*<div>
-                <img class="my-4 w-100 img-fluid" src="~/images/Risk_Factors_Screenshot.png" id="myChart" width="900" height="700" />
-            </div>*@
+            <img class="my-4 w-100 img-fluid" src="~/images/Risk_Factors_Screenshot.png" id="myChart" width="900" height="700" />
+        </div>*@
             <div>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum felis libero, eu ullamcorper lacus hendrerit non. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam aliquam ligula purus, non convallis odio rutrum in. Vivamus non lacus ante. Vivamus vestibulum tempor lectus sit amet malesuada. Pellentesque egestas semper tempus. Aliquam erat volutpat. Donec nibh urna, volutpat in massa id, tempus egestas dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ultricies diam nec turpis vehicula, ac dapibus quam fermentum. Suspendisse risus enim, lacinia at tortor et, condimentum posuere mi. Ut euismod dictum nisi, a rutrum urna lobortis in. Sed ipsum nulla, suscipit sit amet dui non, pharetra porttitor tellus.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum felis libero, eu ullamcorper lacus hendrerit non. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam aliquam ligula purus, non convallis odio rutrum in. Vivamus non lacus ante. Vivamus vestibulum tempor lectus sit amet malesuada. Pellentesque egestas semper tempus. Aliquam erat volutpat. Donec nibh urna, volutpat in massa id, tempus egestas dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ultricies diam nec turpis vehicula, ac dapibus quam fermentum. Suspendisse risus enim, lacinia at tortor et, condimentum posuere mi. Ut euismod dictum nisi, a rutrum urna lobortis in. Sed ipsum nulla, suscipit sit amet dui non, pharetra porttitor tellus.
-                </p>
+                    Telebix provides various custom reports. These reports give you the necessary information to make the right decisions and take effective action in your efforts against neonatal jaundice. Default reports show risk factors, system coverage, and statistical analysis of usage. Additional reports can be created to suite your parameters.</p>
+             </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <img class="card-img-top" src="~/images/coverage.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Coverage Report</h5>
+                                <a asp-controller="Report" asp-action="CoverageReport" class="btn btn-primary">Go to Report</a>
+                                <p class="card-text">Key indicators about basic app usage</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <img class="card-img-top" src="~/images/risk.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Risk Factors Analysis </h5>
+                                <a asp-controller="Report" asp-action="RiskFactorsReport" class="btn btn-primary">Go to Report</a>
+                                <p class="card-text">Broad overview of test results by risk factor</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <img class="card-img-top" src="~/images/stat.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Statistical Analysis</h5>
+                                <a asp-controller="Report" asp-action="StatReportIndex" class="btn btn-primary">Go to Report</a>
+                                <p class="card-text">Statistical analysis of risk factors</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <img class="card-img-top" src="~/images/tracking.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Application Logs</h5>
+                                <a asp-controller="Report" asp-action="ErrorReport" class="btn btn-primary">Go to Report</a>
+                                <p class="card-text">Central logging of application events</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </main>
+
+
+
     </div>
 </div>
 
