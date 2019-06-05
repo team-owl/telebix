@@ -69,8 +69,24 @@
                                     <td>@clinicGroup.Name</td>
                                     <td style="text-align:center">@clinicGroup.Successful</td>
                                     <td style="text-align:center">@clinicGroup.Failed</td>
-                                    <td style="text-align:center">
-                                        @{ double pct = (double)clinicGroup.Failed / (clinicGroup.Successful + clinicGroup.Failed); }
+                                        @{ 
+                                            double pct = (double)clinicGroup.Failed / (clinicGroup.Successful + clinicGroup.Failed);
+                                            string pctcolor;
+                                            if (pct >= 0.25 && pct < 0.3)
+                                            {
+                                                pctcolor = "orange";
+                                            }
+                                            else if (pct >= 0.3)
+                                            {
+                                                pctcolor = "red";
+                                            }
+                                            else
+                                            {
+                                                pctcolor = "auto";
+                                            }
+
+                                            }
+                                    <td style="text-align:center; color:@pctcolor">
                                         @String.Format("{0:0.0%}", pct)
                                     </td>
                                 </tr>
@@ -98,8 +114,24 @@
                                                         <td width="40%">&nbsp;&nbsp;Device @phoneGroup.Device (UID: @phoneGroup.Name.Substring(0, 8))</td>
                                                         <td width="20%" style="text-align:center">@phoneGroup.Successful</td>
                                                         <td width="20%" style="text-align:center">@phoneGroup.Failed</td>
-                                                        <td width="20%" style="text-align:center">
-                                                            @{ double pct2 = (double)phoneGroup.Failed / (phoneGroup.Successful + phoneGroup.Failed); }
+                                                            @{ 
+                                                                double pct2 = (double)phoneGroup.Failed / (phoneGroup.Successful + phoneGroup.Failed);
+                                                                string pctcolor2;
+                                                                if (pct2 >= 0.25 && pct2 < 0.3)
+                                                                {
+                                                                    pctcolor2 = "orange";
+                                                                }
+                                                                else if (pct2 >= 0.3)
+                                                                {
+                                                                    pctcolor2 = "red";
+                                                                }
+                                                                else
+                                                                {
+                                                                    pctcolor2 = "auto";
+                                                                }
+
+                                                            }
+                                                        <td width="20%" style="text-align:center; color:@pctcolor2">
                                                             @String.Format("{0:0.0%}", pct2)
                                                         </td>
                                                     </tr>
