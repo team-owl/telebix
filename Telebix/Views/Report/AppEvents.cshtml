@@ -94,7 +94,10 @@
                                                 <td>@phoneGroup.Name</td>
                                                 <td>@phoneGroup.Successful</td>
                                                 <td>@phoneGroup.Failed</td>
-                                                <td>subcount3</td>
+                                                <td>
+                                                    @{ double pct2 = (double)phoneGroup.Failed / (phoneGroup.Successful + phoneGroup.Failed); }
+                                                    @String.Format("{0:0.0%}", pct2)
+                                                </td>
                                             </tr>
                                         }
 
