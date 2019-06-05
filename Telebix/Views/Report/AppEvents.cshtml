@@ -75,6 +75,7 @@
                                 <td colspan="4">
                                     @{ 
                                         var phones = Model
+                                            .Where(e => e.ClinicName == clinicGroup.Name)
                                             .GroupBy(e => e.UserId)
                                             .Select(g => new
                                             {
@@ -84,17 +85,17 @@
                                             });
 
                                     }
-                                    @*<table class="table">
-                                        @foreach (var phoneGroup in clinicGroup) {
+                                    <table class="table">
+                                        @foreach (var phoneGroup in phones) {
                                             <tr>
-                                                <td>@phoneGroup.Key</td>
-                                                <td>subcount1</td>
-                                                <td>subcount2</td>
+                                                <td>@phoneGroup.Name</td>
+                                                <td>@phoneGroup.Successful</td>
+                                                <td>@phoneGroup.Failed</td>
                                                 <td>subcount3</td>
                                             </tr>
                                         }
 
-                                    </table>*@
+                                    </table>
                                 </td>
                             </tr>
                         }
