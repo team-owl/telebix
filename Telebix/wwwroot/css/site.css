@@ -83,4 +83,10 @@ footer {
 */
 .clinicRow:hover {
     background-color: lightblue;
+    cursor: pointer;
+}
+
+.phoneRow:hover {
+    font-weight: bold;
+    cursor: pointer
 }
