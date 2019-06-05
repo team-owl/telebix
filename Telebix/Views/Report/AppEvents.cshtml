@@ -111,7 +111,7 @@
 </div>
 
 <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Device Detail</h5>
@@ -134,7 +134,7 @@
     $('#detailModal').on('show.bs.modal', function (event) {
         var phoneId = $(event.relatedTarget).data('phoneid');
         var detailUrl = "./Phone/" + phoneId;
-        alert(detailUrl);
+        //alert(detailUrl);
         var modal = $(this);
         modal.find('.modal-title').text("Device " + phoneId + " Detail")
         $.get(detailUrl, function (data, status) {
