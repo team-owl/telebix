@@ -95,52 +95,6 @@
                                 </tr>
                         }
 
-
-
-
-                        @*@foreach (var clinic in groups)
-                        {
-                            <tr>
-                                <td>@clinic.Key</td>
-                                <td>@clinic.Count(e => e.Success == true)</td>
-                                <td>@clinic.Count(e => e.Success == false)</td>
-                                <td>failure rate</td>
-                            </tr>
-
-                        }*@
-
-                        @*@foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EventDt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhoneId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClinicName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AppVersion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AndroidVersion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Success)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Value)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Message)
-                </td>
-            </tr>
-        }*@
                     </tbody>
                 </table>
 
