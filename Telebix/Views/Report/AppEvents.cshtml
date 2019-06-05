@@ -18,7 +18,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th width="40%">
-                                Clinic Name / Phones
+                                Clinic Name / User ID
                             </th>
                             <th width="20%" style="text-align:center">
                                 # Successful
@@ -69,6 +69,7 @@
                                                     .Select(g => new
                                                     {
                                                         Name = g.Key,
+                                                        Device = g.Min(e => e.PhoneId),
                                                         Successful = g.Count(e => e.Success == true),
                                                         Failed = g.Count(e => e.Success == false)
                                                     });
@@ -78,7 +79,7 @@
                                                 @foreach (var phoneGroup in phones)
                                                 {
                                                     <tr>
-                                                        <td width="40%">@phoneGroup.Name</td>
+                                                        <td width="40%">&nbsp;&nbsp;Device @phoneGroup.Device (UID: @phoneGroup.Name)</td>
                                                         <td width="20%" style="text-align:center">@phoneGroup.Successful</td>
                                                         <td width="20%" style="text-align:center">@phoneGroup.Failed</td>
                                                         <td width="20%" style="text-align:center">
