@@ -42,8 +42,17 @@ namespace Telebix.Controllers
         [HttpGet]
         public IActionResult AppEvents()
         {
+            return View("AppEventParams");
+            //return View(AppEvent.LoadSampleData());
+        }
+
+        [HttpPost]
+        public IActionResult AppEventsReport()
+        {
             return View(AppEvent.LoadSampleData());
         }
+
+
 
         public IActionResult Phone(int Id)
         {
