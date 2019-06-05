@@ -11,7 +11,7 @@
 
     <meta name="author" content="Telebix" />
 
-    <meta name="date" content="2019-06-03" />
+    <meta name="date" content="2019-06-05" />
 
     <title>Statistical Analysis of Telebix Data from 3/1/19 to 5/31/19</title>
 
@@ -201,29 +201,28 @@
 
     <div class="container-fluid main-container">
 
-        
+
 
 
         <div class="fluid-row" id="header">
 
 
+
             <h1 class="title toc-ignore">Statistical Analysis of Telebix Data from 3/1/19 to 5/31/19</h1>
             <h4 class="author">Telebix</h4>
-            <h4 class="date">June 03, 2019</h4>
-
-            <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group mr-2">
-                    <button class="btn btn-sm btn-outline-secondary">Share</button>
-                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Export</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="~/docs/Telebix_Stat.pdf">as PDF</a>
-                    </div>
-                </div>
-            </div>
-
+            <h4 class="date">June 05, 2019</h4>
 
         </div>
 
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Export</button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="~/docs/Telebix_Stat.pdf">as PDF</a>
+                </div>
+            </div>
+        </div>
 
         <div id="load-and-review-data" class="section level1">
             <h1>Load and Review Data</h1>
@@ -386,15 +385,19 @@ testdata &lt;- data.frame(
   ACTUAL_DIST = round(runif(size, 50, 150), 0)
 )
 
+pred &lt;- round(predict(bval_fit, newdata = testdata, interval = &quot;confidence&quot;) * 100, 1)
+
 testdata &lt;- 
-  testdata %&gt;% mutate(BLEVEL = round(predict(bval_fit, newdata = testdata)*100, 0),
+  testdata %&gt;% mutate(BLEVEL = pred[,1],
+                      BLEVEL_LOW = pred[,2],
+                      BLEVEL_HIGH = pred[,3],
                       GENDER = if_else(GENDER_NUM == 1, &quot;Girl&quot;, &quot;Boy&quot;),
                       CHEM = if_else(CHEM_NUM == 1, &quot;Yes&quot;, &quot;No&quot;),
                       DIST = ACTUAL_DIST
 )
 
 testdata %&gt;% 
-  select(AGE, GENDER, WEIGHT, CHEM, ANTENATAL, DIST, BLEVEL) %&gt;% 
+  select(AGE, GENDER, WEIGHT, CHEM, ANTENATAL, DIST, BLEVEL, BLEVEL_LOW, BLEVEL_HIGH) %&gt;% 
   arrange(., desc(BLEVEL)) %&gt;% 
   kable(caption = &quot;&quot;) %&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;, &quot;responsive&quot;))</code></pre>
@@ -424,41 +427,24 @@ testdata %&gt;%
                         <th style="text-align:right;">
                             BLEVEL
                         </th>
+                        <th style="text-align:right;">
+                            BLEVEL_LOW
+                        </th>
+                        <th style="text-align:right;">
+                            BLEVEL_HIGH
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td style="text-align:right;">
-                            28
+                            30
                         </td>
                         <td style="text-align:left;">
-                            Girl
+                            Boy
                         </td>
                         <td style="text-align:right;">
-                            4.19
-                        </td>
-                        <td style="text-align:left;">
-                            Yes
-                        </td>
-                        <td style="text-align:right;">
-                            0
-                        </td>
-                        <td style="text-align:right;">
-                            106
-                        </td>
-                        <td style="text-align:right;">
-                            23
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:right;">
-                            52
-                        </td>
-                        <td style="text-align:left;">
-                            Girl
-                        </td>
-                        <td style="text-align:right;">
-                            6.89
+                            5.07
                         </td>
                         <td style="text-align:left;">
                             Yes
@@ -467,21 +453,27 @@ testdata %&gt;%
                             1
                         </td>
                         <td style="text-align:right;">
-                            140
+                            135
                         </td>
                         <td style="text-align:right;">
-                            20
+                            22.7
+                        </td>
+                        <td style="text-align:right;">
+                            22.4
+                        </td>
+                        <td style="text-align:right;">
+                            23.0
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align:right;">
-                            45
+                            55
                         </td>
                         <td style="text-align:left;">
                             Boy
                         </td>
                         <td style="text-align:right;">
-                            7.63
+                            6.87
                         </td>
                         <td style="text-align:left;">
                             Yes
@@ -490,15 +482,108 @@ testdata %&gt;%
                             2
                         </td>
                         <td style="text-align:right;">
-                            148
+                            97
                         </td>
                         <td style="text-align:right;">
-                            20
+                            19.3
+                        </td>
+                        <td style="text-align:right;">
+                            19.0
+                        </td>
+                        <td style="text-align:right;">
+                            19.6
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align:right;">
-                            14
+                            54
+                        </td>
+                        <td style="text-align:left;">
+                            Girl
+                        </td>
+                        <td style="text-align:right;">
+                            6.10
+                        </td>
+                        <td style="text-align:left;">
+                            Yes
+                        </td>
+                        <td style="text-align:right;">
+                            1
+                        </td>
+                        <td style="text-align:right;">
+                            67
+                        </td>
+                        <td style="text-align:right;">
+                            19.2
+                        </td>
+                        <td style="text-align:right;">
+                            19.0
+                        </td>
+                        <td style="text-align:right;">
+                            19.4
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                            62
+                        </td>
+                        <td style="text-align:left;">
+                            Boy
+                        </td>
+                        <td style="text-align:right;">
+                            7.21
+                        </td>
+                        <td style="text-align:left;">
+                            Yes
+                        </td>
+                        <td style="text-align:right;">
+                            1
+                        </td>
+                        <td style="text-align:right;">
+                            73
+                        </td>
+                        <td style="text-align:right;">
+                            19.1
+                        </td>
+                        <td style="text-align:right;">
+                            18.8
+                        </td>
+                        <td style="text-align:right;">
+                            19.3
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                            57
+                        </td>
+                        <td style="text-align:left;">
+                            Boy
+                        </td>
+                        <td style="text-align:right;">
+                            5.99
+                        </td>
+                        <td style="text-align:left;">
+                            Yes
+                        </td>
+                        <td style="text-align:right;">
+                            2
+                        </td>
+                        <td style="text-align:right;">
+                            54
+                        </td>
+                        <td style="text-align:right;">
+                            19.1
+                        </td>
+                        <td style="text-align:right;">
+                            18.9
+                        </td>
+                        <td style="text-align:right;">
+                            19.4
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                            25
                         </td>
                         <td style="text-align:left;">
                             Boy
@@ -513,79 +598,16 @@ testdata %&gt;%
                             1
                         </td>
                         <td style="text-align:right;">
-                            89
+                            85
                         </td>
                         <td style="text-align:right;">
-                            19
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:right;">
-                            42
-                        </td>
-                        <td style="text-align:left;">
-                            Girl
+                            19.0
                         </td>
                         <td style="text-align:right;">
-                            6.33
-                        </td>
-                        <td style="text-align:left;">
-                            No
+                            18.8
                         </td>
                         <td style="text-align:right;">
-                            1
-                        </td>
-                        <td style="text-align:right;">
-                            136
-                        </td>
-                        <td style="text-align:right;">
-                            18
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:right;">
-                            33
-                        </td>
-                        <td style="text-align:left;">
-                            Boy
-                        </td>
-                        <td style="text-align:right;">
-                            7.43
-                        </td>
-                        <td style="text-align:left;">
-                            No
-                        </td>
-                        <td style="text-align:right;">
-                            2
-                        </td>
-                        <td style="text-align:right;">
-                            117
-                        </td>
-                        <td style="text-align:right;">
-                            17
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:right;">
-                            70
-                        </td>
-                        <td style="text-align:left;">
-                            Boy
-                        </td>
-                        <td style="text-align:right;">
-                            6.68
-                        </td>
-                        <td style="text-align:left;">
-                            No
-                        </td>
-                        <td style="text-align:right;">
-                            1
-                        </td>
-                        <td style="text-align:right;">
-                            96
-                        </td>
-                        <td style="text-align:right;">
-                            17
+                            19.2
                         </td>
                     </tr>
                     <tr>
@@ -593,10 +615,68 @@ testdata %&gt;%
                             53
                         </td>
                         <td style="text-align:left;">
+                            Boy
+                        </td>
+                        <td style="text-align:right;">
+                            6.93
+                        </td>
+                        <td style="text-align:left;">
+                            No
+                        </td>
+                        <td style="text-align:right;">
+                            0
+                        </td>
+                        <td style="text-align:right;">
+                            118
+                        </td>
+                        <td style="text-align:right;">
+                            18.0
+                        </td>
+                        <td style="text-align:right;">
+                            17.7
+                        </td>
+                        <td style="text-align:right;">
+                            18.3
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                            65
+                        </td>
+                        <td style="text-align:left;">
                             Girl
                         </td>
                         <td style="text-align:right;">
-                            7.00
+                            5.81
+                        </td>
+                        <td style="text-align:left;">
+                            No
+                        </td>
+                        <td style="text-align:right;">
+                            0
+                        </td>
+                        <td style="text-align:right;">
+                            105
+                        </td>
+                        <td style="text-align:right;">
+                            17.3
+                        </td>
+                        <td style="text-align:right;">
+                            17.0
+                        </td>
+                        <td style="text-align:right;">
+                            17.6
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:right;">
+                            47
+                        </td>
+                        <td style="text-align:left;">
+                            Girl
+                        </td>
+                        <td style="text-align:right;">
+                            5.76
                         </td>
                         <td style="text-align:left;">
                             No
@@ -605,56 +685,45 @@ testdata %&gt;%
                             1
                         </td>
                         <td style="text-align:right;">
-                            120
+                            77
                         </td>
                         <td style="text-align:right;">
-                            16
+                            17.0
+                        </td>
+                        <td style="text-align:right;">
+                            16.7
+                        </td>
+                        <td style="text-align:right;">
+                            17.2
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align:right;">
-                            58
+                            64
                         </td>
                         <td style="text-align:left;">
                             Girl
                         </td>
                         <td style="text-align:right;">
-                            6.04
+                            6.27
                         </td>
                         <td style="text-align:left;">
                             No
                         </td>
                         <td style="text-align:right;">
-                            2
+                            0
                         </td>
                         <td style="text-align:right;">
-                            126
+                            117
                         </td>
                         <td style="text-align:right;">
-                            16
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:right;">
-                            38
-                        </td>
-                        <td style="text-align:left;">
-                            Girl
+                            17.0
                         </td>
                         <td style="text-align:right;">
-                            7.46
-                        </td>
-                        <td style="text-align:left;">
-                            No
+                            16.8
                         </td>
                         <td style="text-align:right;">
-                            2
-                        </td>
-                        <td style="text-align:right;">
-                            54
-                        </td>
-                        <td style="text-align:right;">
-                            15
+                            17.3
                         </td>
                     </tr>
                 </tbody>
