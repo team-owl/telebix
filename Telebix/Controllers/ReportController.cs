@@ -45,11 +45,11 @@ namespace Telebix.Controllers
             return View(AppEvent.LoadSampleData());
         }
 
-        public IActionResult Phone(int PhoneId)
+        public IActionResult Phone(int Id)
         {
             List<AppEvent> data = AppEvent.LoadSampleData();
             var phoneEvents = data
-                .Where(e => e.PhoneId == PhoneId)
+                .Where(e => e.PhoneId == Id)
                 .OrderByDescending(e => e.EventDt)
                 .Take(20);
                    
