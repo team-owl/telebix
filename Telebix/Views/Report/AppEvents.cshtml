@@ -134,18 +134,14 @@
     $('#detailModal').on('show.bs.modal', function (event) {
         var phoneId = $(event.relatedTarget).data('phoneid');
         var detailUrl = "./Phone/" + phoneId;
-        //alert(detailUrl);
         var modal = $(this);
         modal.find('.modal-title').text("Device " + phoneId + " Detail")
+        $('#modal-body').html('...');       //clear the content in case it loads slowly
         $.get(detailUrl, function (data, status) {
-            $('#modal-body').replaceWith(data);
+            $('#modal-body').html(data);
+            if (status !== "success") {
+                alert("Failed to load " + detailUrl);
+            }
         });
-        //modal.find('.modal-body').load(detailUrl)
-
-
-        //var button = $(event.relatedTarget) // Button that triggered the modal
-        //var recipient = button.data('phoneid') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
     })
 </script>
