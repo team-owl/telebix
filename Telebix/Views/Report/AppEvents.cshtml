@@ -65,26 +65,29 @@
 
                         @foreach (var clinicGroup in groups)
                         {
-                            <tr>
-                                <td>@clinicGroup.Name</td>
-                                <td>@clinicGroup.Successful</td>
-                                <td>@clinicGroup.Failed</td>
-                                <td>pct</td>
-                            </tr>
+                        <tr>
+                            <td>@clinicGroup.Name</td>
+                            <td>@clinicGroup.Successful</td>
+                            <td>@clinicGroup.Failed</td>
+                            <td>
+                                @{ double pct = (double)clinicGroup.Failed / (clinicGroup.Successful + clinicGroup.Failed); }
+                                @String.Format("{0:0.0%}", pct)
+                            </td>
+                        </tr>
                             <tr>
                                 <td colspan="4">
-                                    @{ 
-                                        var phones = Model
-                                            .Where(e => e.ClinicName == clinicGroup.Name)
-                                            .GroupBy(e => e.UserId)
-                                            .Select(g => new
-                                            {
-                                                Name = g.Key,
-                                                Successful = g.Count(e => e.Success == true),
-                                                Failed = g.Count(e => e.Success == false)
-                                            });
+                                    @{
+                                            var phones = Model
+                                                .Where(e => e.ClinicName == clinicGroup.Name)
+                                                .GroupBy(e => e.UserId)
+                                                .Select(g => new
+                                                {
+                                                    Name = g.Key,
+                                                    Successful = g.Count(e => e.Success == true),
+                                                    Failed = g.Count(e => e.Success == false)
+                                                });
 
-                                    }
+                                        }
                                     <table class="table">
                                         @foreach (var phoneGroup in phones) {
                                             <tr>
