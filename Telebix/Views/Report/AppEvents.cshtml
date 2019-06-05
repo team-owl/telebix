@@ -41,7 +41,8 @@
                                     Name = g.Key,
                                     Successful = g.Count(e => e.Success == true),
                                     Failed = g.Count(e => e.Success == false)
-                                });
+                                })
+                                .OrderBy(g => g.Name);
 
                         }
 
