@@ -47,45 +47,50 @@
 
                         @foreach (var clinicGroup in groups)
                         {
-                        <tr style="font-weight:bold;">
-                            <td>@clinicGroup.Name</td>
-                            <td style="text-align:center">@clinicGroup.Successful</td>
-                            <td style="text-align:center">@clinicGroup.Failed</td>
-                            <td style="text-align:center">
-                                @{ double pct = (double)clinicGroup.Failed / (clinicGroup.Successful + clinicGroup.Failed); }
-                                @String.Format("{0:0.0%}", pct)
-                            </td>
-                        </tr>
-                            <tr>
-                                <td colspan="4">
-                                    @{
-                                            var phones = Model
-                                                .Where(e => e.ClinicName == clinicGroup.Name)
-                                                .GroupBy(e => e.UserId)
-                                                .Select(g => new
-                                                {
-                                                    Name = g.Key,
-                                                    Successful = g.Count(e => e.Success == true),
-                                                    Failed = g.Count(e => e.Success == false)
-                                                });
+                            string clinicId = clinicGroup.Name.Replace(" ", "_");
 
-                                        }
-                                    <table class="table-striped" width="100%">
-                                        @foreach (var phoneGroup in phones) {
-                                            <tr>
-                                                <td width="40%">@phoneGroup.Name</td>
-                                                <td width="20%" style="text-align:center">@phoneGroup.Successful</td>
-                                                <td width="20%" style="text-align:center">@phoneGroup.Failed</td>
-                                                <td width="20%" style="text-align:center">
-                                                    @{ double pct2 = (double)phoneGroup.Failed / (phoneGroup.Successful + phoneGroup.Failed); }
-                                                    @String.Format("{0:0.0%}", pct2)
-                                                </td>
-                                            </tr>
-                                        }
-
-                                    </table>
+                            <tr style="font-weight:bold;" data-toggle="collapse" data-target="#@clinicId">
+                                <td>@clinicGroup.Name</td>
+                                <td style="text-align:center">@clinicGroup.Successful</td>
+                                <td style="text-align:center">@clinicGroup.Failed</td>
+                                <td style="text-align:center">
+                                    @{ double pct = (double)clinicGroup.Failed / (clinicGroup.Successful + clinicGroup.Failed); }
+                                    @String.Format("{0:0.0%}", pct)
                                 </td>
                             </tr>
+                                <tr>
+                                    <td colspan="4" style="padding:0">
+                                        <div id="@clinicId" class="collapse">
+                                        @{
+                                                var phones = Model
+                                                    .Where(e => e.ClinicName == clinicGroup.Name)
+                                                    .GroupBy(e => e.UserId)
+                                                    .Select(g => new
+                                                    {
+                                                        Name = g.Key,
+                                                        Successful = g.Count(e => e.Success == true),
+                                                        Failed = g.Count(e => e.Success == false)
+                                                    });
+
+                                            }
+                                            <table class="table-striped" width="100%">
+                                                @foreach (var phoneGroup in phones)
+                                                {
+                                                    <tr>
+                                                        <td width="40%">@phoneGroup.Name</td>
+                                                        <td width="20%" style="text-align:center">@phoneGroup.Successful</td>
+                                                        <td width="20%" style="text-align:center">@phoneGroup.Failed</td>
+                                                        <td width="20%" style="text-align:center">
+                                                            @{ double pct2 = (double)phoneGroup.Failed / (phoneGroup.Successful + phoneGroup.Failed); }
+                                                            @String.Format("{0:0.0%}", pct2)
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
                         }
 
 
