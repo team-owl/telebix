@@ -77,3 +77,10 @@ footer {
     font-size: .75rem;
     text-transform: uppercase;
 }
+
+/*
+    AppEvents report
+*/
+.clinicRow:hover {
+    background-color: lightblue;
+}
