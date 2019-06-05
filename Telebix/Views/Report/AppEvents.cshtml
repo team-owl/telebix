@@ -34,22 +34,84 @@
                     <tbody>
                         @{
                             //Group results by clinic
-                            var groups = from appEv in Model
-                                         group appEv by appEv.ClinicName into clinicGroup
-                                         orderby clinicGroup.Key
-                                         select clinicGroup;
+                            var groups = Model
+                                .GroupBy(e => e.ClinicName)
+                                .Select(g => new
+                                {
+                                    Name = g.Key,
+                                    Successful = g.Count(e => e.Success == true),
+                                    Failed = g.Count(e => e.Success == false)
+                                });
+
+
+                            ////Nested group by clinic name, phone ID
+                            //var groups = from appEvent in Model
+                            //             group appEvent by appEvent.ClinicName into clinicGroup
+                            //             from phoneGroup in
+                            //             (from appEvent in clinicGroup
+                            //              group appEvent by appEvent.UserId)
+                            //             group phoneGroup by clinicGroup.Key
+                            //             ;
+
+
+                            //Group results by clinic
+                            //var groups = from appEv in Model
+                            //             group appEv by appEv.ClinicName into clinicGroup
+                            //             orderby clinicGroup.Key
+                            //             select clinicGroup;
+
+
                         }
 
-                        @foreach (var clinic in groups)
+                        @foreach (var clinicGroup in groups)
+                        {
+                            <tr>
+                                <td>@clinicGroup.Name</td>
+                                <td>@clinicGroup.Successful</td>
+                                <td>@clinicGroup.Failed</td>
+                                <td>pct</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    @{ 
+                                        var phones = Model
+                                            .GroupBy(e => e.UserId)
+                                            .Select(g => new
+                                            {
+                                                Name = g.Key,
+                                                Successful = g.Count(e => e.Success == true),
+                                                Failed = g.Count(e => e.Success == false)
+                                            });
+
+                                    }
+                                    @*<table class="table">
+                                        @foreach (var phoneGroup in clinicGroup) {
+                                            <tr>
+                                                <td>@phoneGroup.Key</td>
+                                                <td>subcount1</td>
+                                                <td>subcount2</td>
+                                                <td>subcount3</td>
+                                            </tr>
+                                        }
+
+                                    </table>*@
+                                </td>
+                            </tr>
+                        }
+
+
+
+
+                        @*@foreach (var clinic in groups)
                         {
                             <tr>
                                 <td>@clinic.Key</td>
                                 <td>@clinic.Count(e => e.Success == true)</td>
                                 <td>@clinic.Count(e => e.Success == false)</td>
-@*                                @{ clinic.Count(e => e.Success == true) / clinic.Count(e => e.Success == true); }*@
+                                <td>failure rate</td>
                             </tr>
 
-                        }
+                        }*@
 
                         @*@foreach (var item in Model)
         {
