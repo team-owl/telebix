@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Telebix.Models.AppEvent>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClinicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppVersion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AndroidVersion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Success)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AppVersion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AndroidVersion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Success)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -44,5 +44,16 @@ namespace Telebix.Controllers
         {
             return View(AppEvent.LoadSampleData());
         }
+
+        public IActionResult Phone(int PhoneId)
+        {
+            List<AppEvent> data = AppEvent.LoadSampleData();
+            var phoneEvents = data
+                .Where(e => e.PhoneId == PhoneId)
+                .OrderByDescending(e => e.EventDt)
+                .Take(20);
+                   
+            return View(phoneEvents);
+        }
     }
 }
