@@ -73,6 +73,7 @@
                                             var phones = Model
                                                 .Where(e => e.ClinicName == clinicGroup.Name)
                                                 .GroupBy(e => e.UserId)
+                                                .OrderBy(e => e.Min(f => f.PhoneId))
                                                 .Select(g => new
                                                 {
                                                     Name = g.Key,
@@ -86,7 +87,7 @@
                                             @foreach (var phoneGroup in phones)
                                             {
                                                 <tr data-toggle="modal" data-target="#detailModal" data-phoneid="@phoneGroup.Device" class="phoneRow">
-                                                    <td width="40%">&nbsp;&nbsp;Device @phoneGroup.Device (UID: @phoneGroup.Name)</td>
+                                                    <td width="40%">&nbsp;&nbsp;Device @phoneGroup.Device (UID: @phoneGroup.Name.Substring(0,8))</td>
                                                     <td width="20%" style="text-align:center">@phoneGroup.Successful</td>
                                                     <td width="20%" style="text-align:center">@phoneGroup.Failed</td>
                                                     <td width="20%" style="text-align:center">
