@@ -49,7 +49,7 @@ namespace Telebix.Controllers
         [HttpPost]
         public IActionResult AppEventsReport()
         {
-            return View(AppEvent.LoadSampleData());
+            return View("AppEvents", AppEvent.LoadSampleData());
         }
 
 

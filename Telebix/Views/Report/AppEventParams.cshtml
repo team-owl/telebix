@@ -1,0 +1,82 @@
+﻿@model Telebix.Models.AppEvent
+
+@{
+    ViewData["Title"] = "Scan Event Log";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <partial name="_ReportNav" />
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">@ViewData["Title"]</h1>
+                <partial name="_ShareExport" />
+            </div>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                <div class="col-md-4">
+                    <form asp-action="AppEventsReport">
+                        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+                        <div class="form-group">
+                            <label class="control-label">Start Date</label>
+                            <input type="date" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">End Date</label>
+                            <input type="date" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Clinic(s)</label>
+                            <select class="form-control">
+                                <option value="all">(All)</option>
+                                <option value="Benin">Benin City</option>
+                                <option value="Enugu">Enugu</option>
+                                <option value="Ibadan">Ibadan</option>
+                                <option value="Ilorin">Ilorin</option>
+                                <option value="Jos">Jos</option>
+                                <option value="Kaduna">Kaduna</option>
+                                <option value="Kano">Kano</option>
+                                <option value="Lagos">Lagos</option>
+                                <option value="Harcourt">Port Harcourt</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Run Report" class="btn btn-default" />
+                        </div>
+                    </form>
+                </div>
+
+
+
+            </div>
+        </main>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>AppEvent</h4>
+<hr />
+<div class="row">
+</div>
