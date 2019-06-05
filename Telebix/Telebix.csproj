@@ -16,8 +16,6 @@
     <Content Remove="Views\Report\StatReportMarMay2019_1.cshtml" />
     <Content Remove="wwwroot\docs\Telebix_Logistics_Report.pdf" />
     <Content Remove="wwwroot\images\coverage.jpg" />
-    <Content Remove="wwwroot\images\Coverage_Report.png" />
-    <Content Remove="wwwroot\images\Risk_Factor_Analysis.png" />
     <Content Remove="wwwroot\images\stat.jpg" />
   </ItemGroup>
 
