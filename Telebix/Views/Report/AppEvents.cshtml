@@ -43,24 +43,6 @@
                                     Failed = g.Count(e => e.Success == false)
                                 });
 
-
-                            ////Nested group by clinic name, phone ID
-                            //var groups = from appEvent in Model
-                            //             group appEvent by appEvent.ClinicName into clinicGroup
-                            //             from phoneGroup in
-                            //             (from appEvent in clinicGroup
-                            //              group appEvent by appEvent.UserId)
-                            //             group phoneGroup by clinicGroup.Key
-                            //             ;
-
-
-                            //Group results by clinic
-                            //var groups = from appEv in Model
-                            //             group appEv by appEv.ClinicName into clinicGroup
-                            //             orderby clinicGroup.Key
-                            //             select clinicGroup;
-
-
                         }
 
                         @foreach (var clinicGroup in groups)
