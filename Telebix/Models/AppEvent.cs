@@ -17,5 +17,12 @@ namespace Telebix.Models
         public float Value { get; set; }
         public string Message { get; set; }
 
+        // Since the sample data values are not properly formatted, make up random values instead
+        public string ValueString()
+        {
+            Random r = new Random();
+            double d = Math.Round(r.NextDouble() * 60) / 2; //Increments of 0.5
+            return String.Format("{0:P1}", d / 100);
+        }
     }
 }
