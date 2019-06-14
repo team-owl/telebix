@@ -47,12 +47,66 @@
                 </button>
             </div>
             <div class="modal-body" id="modal-body">
+                <span style="font-weight:bold">How often would you like to receive this report?</span>
                 <form>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">Report will be emailed in PDF format.</small>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="frequencyRadio" id="defaultCheck1" />
+                            <label class="form-check-label" for="defaultCheck1">
+                                Monthly
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="frequencyRadio" id="defaultCheck2" />
+                            <label class="form-check-label" for="defaultCheck2">
+                                Daily
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="frequencyRadio" id="defaultCheck3" />
+                            <label class="form-check-label" for="defaultCheck3">
+                                Weekly on the following days:
+                            </label>
+                        </div>
                     </div>
+
+                    <div class="form-group" style="padding-left: 20px;">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="wk-sun" value="sun">
+                            <label class="form-check-label" for="sun">Sun</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="wk-mon" value="mon">
+                            <label class="form-check-label" for="mon">Mon</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="tue" value="tue">
+                            <label class="form-check-label" for="tue">Tue</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="wed" value="wed">
+                            <label class="form-check-label" for="wed">Wed</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="thu" value="thu">
+                            <label class="form-check-label" for="thu">Thu</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="fri" value="fri">
+                            <label class="form-check-label" for="fri">Fri</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="sat" value="sat">
+                            <label class="form-check-label" for="inlineCheckbox1">Sat</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style="font-weight:bold">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">Reports will be emailed in PDF format until unsubscribed.</small>
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">
