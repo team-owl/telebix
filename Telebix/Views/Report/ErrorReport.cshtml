@@ -1,6 +1,9 @@
 ﻿
 @{
     ViewData["Title"] = "Application Log Report";
+    ViewData["export-pdf-link"] = "../docs/Log_Summary.pdf";
+    ViewData["export-png-link"] = "../images/Log_Summary.png";
+
 }
 
 <div class="container-fluid">
@@ -10,8 +13,9 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">@ViewData["Title"]</h1>
-                @*<partial name="_ShareExport" />*@
-                <div class="btn-toolbar mb-2 mb-md-0">
+                <partial name="_ShareExport" />
+
+                @*<div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group mr-2">
                         <button class="btn btn-sm btn-outline-secondary">Share</button>
                         <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Export</button>
@@ -20,7 +24,8 @@
                             <a class="dropdown-item" href="~/images/Log_Summary.png">as PNG</a>
                         </div>
                     </div>
-                </div>
+                </div>*@
+
             </div>
             <div>
                 <iframe width="933" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiODJlOGY1MWQtNjYzMS00NTMzLThjMmMtZGMyNmMyNTFmZGM1IiwidCI6ImJjMTBlMDUyLWIwMWMtNDg0OS05OTY3LWVlN2VjNzRmYzlkOCIsImMiOjZ9" frameborder="0" allowFullScreen="true"></iframe>
