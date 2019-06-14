@@ -160,7 +160,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" id="modal-body">
+            <div class="modal-body" id="detail-modal-body">
                 ...
             </div>
             <div class="modal-footer">
@@ -175,11 +175,12 @@
     $('#detailModal').on('show.bs.modal', function (event) {
         var phoneId = $(event.relatedTarget).data('phoneid');
         var detailUrl = "./Phone/" + phoneId;
+        var loadingImg = '<img src="../images/loading.gif" alt="loading"/>';
         var modal = $(this);
         modal.find('.modal-title').text("Device " + phoneId + " Detail")
-        $('#modal-body').html('...');       //clear the content in case it loads slowly
+        $('#detail-modal-body').html(loadingImg);       //clear the content in case it loads slowly
         $.get(detailUrl, function (data, status) {
-            $('#modal-body').html(data);
+            $('#detail-modal-body').html(data);
             if (status !== "success") {
                 alert("Failed to load " + detailUrl);
             }
