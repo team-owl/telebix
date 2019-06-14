@@ -1,6 +1,8 @@
 ﻿
 @{
     ViewData["Title"] = "Risk Factors Analysis Report";
+    ViewData["export-pdf-link"] = "../docs/Risk_Factor_Analysis.pdf";
+    ViewData["export-png-link"] = "../images/Risk_Factor_Analysis.PNG";
 }
 
 <div class="container-fluid">
@@ -10,8 +12,9 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Risk Factors Analysis</h1>
-                @*<partial name="_ShareExport" />*@
-                <div class="btn-toolbar mb-2 mb-md-0">
+                <partial name="_ShareExport" view-data="ViewData"/>
+
+                @*<div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group mr-2">
                         <button class="btn btn-sm btn-outline-secondary">Share</button>
                         <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Export</button>
@@ -20,7 +23,7 @@
                             <a class="dropdown-item" href="~/images/Risk_Factor_Analysis.PNG">as PNG</a>
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div>
             <div>
                 @*<img class="my-4 w-100 img-fluid" src="~/images/Risk_Factors_Screenshot.png" id="myChart" width="900" height="700" />*@
