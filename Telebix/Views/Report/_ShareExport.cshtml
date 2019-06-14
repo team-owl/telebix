@@ -1,11 +1,12 @@
 ﻿<div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group mr-2">
-        <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#shareModal">Share</button>
-        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">Export</button>
+        <button class="btn btn-sm btn-outline-secondary" disabled="@ViewData["share-btn-disabled"]" data-toggle="modal" data-target="#shareModal">Share.</button>
+        <button class="btn btn-sm btn-outline-secondary" disabled="@ViewData["schedule-btn-disabled"]">Schedule</button>
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" disabled="@ViewData["export-btn-disabled"]" data-toggle="dropdown">Export</button>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">as PDF</a>
-            <a class="dropdown-item" href="#">as PNG</a>
-            <a class="dropdown-item" href="#">as CSV</a>
+            <a class="dropdown-item" href="@(ViewData["export-pdf-link"] == null ? "#" : ViewData["export-pdf-link"])">as PDF</a>
+            <a class="dropdown-item" href="@(ViewData["export-png-link"] == null ? "#" : ViewData["export-png-link"])">as PNG</a>
+            <a class="dropdown-item" href="@(ViewData["export-csv-link"] == null ? "#" : ViewData["export-csv-link"])">as CSV</a>
         </div>
     </div>
 </div>
